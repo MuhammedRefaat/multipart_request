@@ -6,7 +6,7 @@ class MultipartRequest {
   static const MethodChannel _channel =
       const MethodChannel('multipart_request');
 
-  String _url;
+  String? _url;
   var _headers = {}, _fields = {};
   var _files = [];
 
@@ -66,13 +66,13 @@ class MultipartRequest {
           break;
         default:
       }
-    });
+    } as Future<dynamic> Function(MethodCall)?);
 
     return response;
   }
 }
 
 class Response {
-  Stream<int> progress;
+  Stream<int>? progress;
   Function onComplete, onError;
 }
