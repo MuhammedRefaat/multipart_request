@@ -74,5 +74,6 @@ class MultipartRequest {
 
 class Response {
   Stream<int>? progress;
-  Function? onComplete, onError;
+  Function onComplete = () {},
+    onError = () {};
 }
