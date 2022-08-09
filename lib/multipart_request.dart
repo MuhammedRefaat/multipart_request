@@ -48,7 +48,7 @@ class MultipartRequest {
     Response response = Response();
     response.progress = controller.stream;
 
-    _channel.setMethodCallHandler((handler) {
+    _channel.setMethodCallHandler((MethodCall handler) async{
       switch (handler.method) {
         case "progress":
           int progress = int.parse(handler.arguments);
@@ -66,7 +66,7 @@ class MultipartRequest {
           break;
         default:
       }
-    } as Future<dynamic> Function(MethodCall)?);
+    } as Future<dynamic> Function(MethodCall call));
 
     return response;
   }
